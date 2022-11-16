@@ -11,6 +11,7 @@ from imageio import imread
 import  os
 import jieba
 import json
+import requests
 from flask import Flask, request, make_response
 from tencentcloud.common import credential
 from tencentcloud.common.profile.client_profile import ClientProfile
@@ -42,7 +43,7 @@ def upload():
             'Accept': '/json'
         }
 
-        response = requests.request("POST", url, headers=headers, data=payload)
+        response = request.request("POST", url, headers=headers, data=payload)
         response = json.loads(json.dumps(response.json()))
         if response['items'][0]['positive_prob']>=response['items'][0]['negative_prob']:
             return json.dumps(1, ensure_ascii=False)
