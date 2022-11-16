@@ -12,6 +12,11 @@ import  os
 import jieba
 import json
 from flask import Flask, request, make_response
+from tencentcloud.common import credential
+from tencentcloud.common.profile.client_profile import ClientProfile
+from tencentcloud.common.profile.http_profile import HttpProfile
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.nlp.v20190408 import nlp_client, models
 API_KEY = "3bZkFHFfLOUg091GPgRkeOVk"
 SECRET_KEY = "V8P7KmzmvKSKWt4abbLLo1RmbqoC0qTz"
 def get_access_token():
