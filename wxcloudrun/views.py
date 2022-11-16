@@ -43,7 +43,7 @@ def upload():
             'Accept': '/json'
         }
 
-        response = request.request("POST", url, headers=headers, data=payload)
+        response = requests.request("POST", url, headers=headers, data=payload)
         response = json.loads(json.dumps(response.json()))
         if response['items'][0]['positive_prob']>=response['items'][0]['negative_prob']:
             return json.dumps(1, ensure_ascii=False)
