@@ -32,7 +32,7 @@ def upload():
         payload = json.dumps({
             "text": text
         })
-         headers = {
+        headers = {
             'Content-Type': 'application/json',
             'Accept': '/json'
         }
